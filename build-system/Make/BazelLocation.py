@@ -64,13 +64,18 @@ def locate_bazel(base_path, cache_host):
                     temp_output_file.name
                 ], check_result=False)
                 test_sha256 = calculate_sha256(temp_output_file.name)
-                if test_sha256 == versions.bazel_version_sha256:
+                if arch == 'darwin-x86_64' and test_sha256 == "2eb68de8c495250dcdce4c9e2e5e4bbc6c5ff95343262568fdd549224c85d635":
+                    shutil.copyfile(temp_output_file.name, bazel_path)
+                elif arch != 'darwin-x86_64' and test_sha256 == versions.bazel_version_sha256:
                     shutil.copyfile(temp_output_file.name, bazel_path)
 
 
     if os.path.isfile(bazel_path) and versions.bazel_version_sha256 is not None:
         test_sha256 = calculate_sha256(bazel_path)
-        if test_sha256 != versions.bazel_version_sha256:
+        if arch == 'darwin-x86_64' and test_sha256 != "2eb68de8c495250dcdce4c9e2e5e4bbc6c5ff95343262568fdd549224c85d635":
+            print(f"Bazel at {bazel_path} does not match SHA256 2eb68de8c495250dcdce4c9e2e5e4bbc6c5ff95343262568fdd549224c85d635, removing")
+            os.remove(bazel_path)
+        elif arch != 'darwin-x86_64' and test_sha256 != versions.bazel_version_sha256:
             print(f"Bazel at {bazel_path} does not match SHA256 {versions.bazel_version_sha256}, removing")
             os.remove(bazel_path)
 
@@ -89,7 +94,10 @@ def locate_bazel(base_path, cache_host):
 
         if os.path.isfile(bazel_path) and versions.bazel_version_sha256 is not None:
             test_sha256 = calculate_sha256(bazel_path)
-            if test_sha256 != versions.bazel_version_sha256:
+            if arch == 'darwin-x86_64' and test_sha256 != "2eb68de8c495250dcdce4c9e2e5e4bbc6c5ff95343262568fdd549224c85d635":
+                print(f"Bazel at {bazel_path} does not match SHA256 2eb68de8c495250dcdce4c9e2e5e4bbc6c5ff95343262568fdd549224c85d635, removing")
+                os.remove(bazel_path)
+            elif arch != 'darwin-x86_64' and test_sha256 != versions.bazel_version_sha256:
                 print(f"Bazel at {bazel_path} does not match SHA256 {versions.bazel_version_sha256}, removing")
                 os.remove(bazel_path)
 
