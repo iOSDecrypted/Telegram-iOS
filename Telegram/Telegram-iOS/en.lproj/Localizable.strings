@@ -14188,3 +14188,14 @@ Sorry for the inconvenience.";
 "SendInviteLink.TextCallsRestrictedMultipleUsers_1" = "{user_list}, and **%d** more person do not accept calls.";
 "SendInviteLink.TextCallsRestrictedMultipleUsers_any" = "{user_list}, and **%d** more people do not accept calls.";
 "SendInviteLink.TextCallsRestrictedSendInviteLink" = "You can try to send an invite link instead.";
+
+// SGEnhance Settings
+"SGE_Settings_Title" = "SGEnhance Settings";
+"SGE_Settings_SectionLinks" = "LINKS";
+"SGE_Settings_NewsChannel" = "News Channel";
+"SGE_Settings_IPAsChannel" = "IPAs Channel";
+"SGE_Settings_SectionFeatures" = "FEATURES";
+"SGE_Settings_ShowDeletedMessages" = "Show Deleted Messages";
+"SGE_Settings_NotificationFix" = "Notification Fix (Experimental)";
+"SGE_Settings_HideReadReceipts" = "Hide Read Receipts";
+"SGE_Settings_FooterText" = "More features coming soon to SGEnhance!";
